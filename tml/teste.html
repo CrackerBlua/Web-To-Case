@@ -1,36 +1,112 @@
 <html>
 	<head>
 		<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+			
+		<script type='text/javascript'> 
+			
+			function alteradoCampos(){
+			
+				const sfName = document.getElementById("last_name");
+				const sfEmail = document.getElementById("email");
+				const sfPhone = document.getElementById("phone");
+				const sfCompany = document.getElementById("company");
+				const sfCity = document.getElementById("city");
+				const sfDescription= document.getElementById("description");
+				sfName.value = document.getElementById("Nome").value;
+				sfEmail.value =  document.getElementById("SiteEmail").value;
+				sfPhone.value = document.getElementById("Telefone").value;
+				sfCompany.value =  document.getElementById("Empresa").value;
+				sfCity.value = document.getElementById("Cidade").value;
+				sfDescription.value =  document.getElementById("Comentarios").value;
+				console.log(sfName.value);
+				console.log(sfEmail.value);
+				console.log(sfPhone.value);
+				console.log(sfCompany.value);
+				console.log(sfCity.value);
+				console.log(sfDescription.value);
+			}
+			
+			function Submetido(){
+				const sfName = document.getElementById("last_name");
+				const sfEmail = document.getElementById("email");
+				const sfPhone = document.getElementById("phone");
+				const sfCompany = document.getElementById("company");
+				const sfCity = document.getElementById("city");
+				const sfDescription= document.getElementById("description");
+				console.log(sfName.value);
+				console.log(sfEmail.value);
+				console.log(sfPhone.value);
+				console.log(sfCompany.value);
+				console.log(sfCity.value);
+				console.log(sfDescription.value);
+			}
+			
+			function confirmInput(){
+				document.getElementById("sfForm").submit();
+			}
+			
+		</script>
 	</head>
 	<body>
-		<form action="https://gruposotreq--hml.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+	
+	<fieldset action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" >
+          <legend>Selecting elements</legend>
+          <p>
+             <label>Select list</label>
+             <select id = "myList">
+               <option value = "1">one</option>
+               <option value = "2">two</option>
+               <option value = "3">three</option>
+               <option value = "4">four</option>
+             </select>
+          </p>
+       </fieldset>	
+		
+	<form id="siteForm" onsubmit="confirmInput()">
+		Nome: <input type="text" id="Nome" name="Nome" onblur="alteradoCampos()"  minlength="2" maxlength="50" size="10"><br>
+		Email: <input type="text" id="SiteEmail" name="Email" onblur="alteradoCampos()" minlength="2" maxlength="50" size="10"><br>
+		Telefone: <input type="text" id="Telefone" name="Telefone" onblur="alteradoCampos()"  minlength="2" maxlength="50" size="10"><br>
+		Cidade: <input type="text" id="Cidade" name="Cidade" onblur="alteradoCampos()" minlength="2" maxlength="50" size="10"><br>
+		Empresa: <input type="text" id="Empresa" name="Empresa" onblur="alteradoCampos()" minlength="2" maxlength="50" size="10"><br>
+		Comentários:<textarea name="Comentarios" id="Comentarios" onChange="alteradoCampos()"></textarea><br>
+	</form>
+		
+	<button type="submit" form="sfForm" value="Submit" onclick="confirmInput">Submit</button>
+		
+	<form id="sfForm" name="sfForm" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"  onSubmit="Submetido()" method="POST">
 
-<input type=hidden name="orgid" value="00D0m000000DTKT">
-<input type=hidden name="retURL" value="http://">
-<input type=hidden name="recordType" id="recordType" value="012f4000000Ff2o">
-<input type="hidden" id="status" name="status" value="Novo">
-<input type="hidden" id="origin" name="origin" value="WEB-TO-CASE">
+		<input type=hidden name="oid" value="00D180000009IgK">
+		<input type=hidden name="retURL" value="http://">
+		<input type=hidden name="lead_source" id="lead_source" value="Site">
+		<input type=hidden name="00Nf4000008t6sv" value="Web-To-Lead">
+		<input type=hidden name="state" id="state" value="Nulo">
+		<input type=hidden name="00Nf4000008tCrl" value=" Cotação Web-To-Lead">
+		<input type=hidden name="00Nf4000008t6sv" value="Web-To-Lead">
+		<input type=hidden name="00Nf400000UCG0b" value="UNCO Norte">
+		<input type=hidden name="00Nf4000008tCsB" value="Web-To-Lead">
 
-<input type="hidden" name="debug" value=1>
-<input type="hidden" name="debugEmail" value="daniel.oliveira@sottelli.com">
+		<input type="hidden" name="debug" value=1>
+		<input type="hidden" name="debugEmail" value="daniel.oliveira@sottelli.com">
+		
+	
 
+		<!--<label for="last_name">Nome Completo</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>-->
+		<input type=hidden name="last_name" id="last_name" value="">
+		<!--<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>-->
+		<input type=hidden name="emailLead" id="emailLead" value="">
+		<!--<label for="phone">Telefone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>-->
+		<input type=hidden name="phone" id="phone" value="">
+		<!--<label for="company">Empresa</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>-->
+		<input type=hidden name="company" id="company" value="">
+		<!--<label for="city">Cidade</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>-->
+		<input type=hidden name="city" id="city" value="">
 			
-Nome do Cliente:<input  id="00Nf400000O2e0Y" maxlength="255" name="00Nf400000O2e0Y" size="20" type="text" /><br>
+		<!--Comentários:<textarea name="description"></textarea><br>-->
+		<input type=hidden name="description" id="description" value="">
+		
 
-Email<input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
-
-Telefone<input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
-
-Estado<input id="EstadoWeb__c"  maxlength="2" name="EstadoWeb__c" size="20" type="text"/><br>
-
-Cidade<input  id="CidadeWeb__c" maxlength="255" name="CidadeWeb__c" size="20" type="text" /><br>
-
-Empresa<input  id="company" maxlength="80" name="company" size="20" type="text" /><br>
-
-Comentários<textarea id="description" maxlength="32000" name="description" type="text" wrap="soft"></textarea><br>
-
-<input type="submit" name="submit">
-
-</form>
+	</form>
+	
+	
 	</body>
 </html>
